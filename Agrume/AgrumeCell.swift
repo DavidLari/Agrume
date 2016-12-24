@@ -138,12 +138,12 @@ extension AgrumeCell: UIGestureRecognizerDelegate {
     if notZoomed() {
       let zoomWidth = contentView.bounds.width / AgrumeCell.targetZoomForDoubleTap
       let zoomHeight = contentView.bounds.height / AgrumeCell.targetZoomForDoubleTap
-      targetZoom = CGRect(x: point.x - zoomWidth / 2, y: point.y / zoomWidth / 2, width: zoomWidth, height: zoomHeight)
+      targetZoom = CGRect(x: point.x - zoomWidth / 2, y: point.y - zoomHeight / 2, width: zoomWidth, height: zoomHeight)
       targetInsets = contentInsetForScrollView(atScale: AgrumeCell.targetZoomForDoubleTap)
     } else {
       let zoomWidth = contentView.bounds.width * scrollView.zoomScale
       let zoomHeight = contentView.bounds.height * scrollView.zoomScale
-      targetZoom = CGRect(x: point.x - zoomWidth / 2, y: point.y / zoomWidth / 2, width: zoomWidth, height: zoomHeight)
+      targetZoom = CGRect(x: 0, y: 0, width: zoomWidth, height: zoomHeight)
       targetInsets = contentInsetForScrollView(atScale: 1)
     }
 
